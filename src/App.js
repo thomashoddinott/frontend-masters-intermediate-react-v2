@@ -8,7 +8,7 @@ import ThemeConext from './context/ThemeContext'
 
 function App() {
   const themeHook = useState('darkblue')
-  //const [themeHook, setThemeHook] = ^
+  //const [themeHook, setThemeHook] == ^
   return (
     <ThemeConext.Provider value={themeHook}>
     <header>
