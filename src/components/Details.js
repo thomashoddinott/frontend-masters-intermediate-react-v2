@@ -1,11 +1,14 @@
 //try with a class component - no hooks here!
-import React from 'react'
+import React, { lazy }  from 'react'
 import pet from '@frontendmasters/pet'
 import Carousel from './Carousel'
 import ErrorBoundary from './ErrorBoundary'
 import ThemeContext from '../context/ThemeContext'
 import { navigate } from '@reach/router'
-import Modal from '../modal'
+// import Modal from '../modal'
+
+//uses top-level suspense component
+const Modal = lazy(() => import('../modal'))
 
 class Details extends React.Component {
   constructor(props) { //ritual to do with class components

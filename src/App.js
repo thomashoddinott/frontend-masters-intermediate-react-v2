@@ -1,12 +1,13 @@
 import React, { useState, lazy, Suspense } from 'react'
-import SearchParams from './components/SearchParams'
+//import SearchParams from './components/SearchParams'
 import './App.css';
 import { Link, Router } from '@reach/router'
 // import Details from './components/Details';
 import ThemeConext from './context/ThemeContext'
 
+//component has no concept of being dynamically loaded
 const Details = lazy(() => import('./components/Details'))
-
+const SearchParams = lazy(() => import('./components/SearchParams'))
 
 function App() {
   const themeHook = useState('darkblue')
