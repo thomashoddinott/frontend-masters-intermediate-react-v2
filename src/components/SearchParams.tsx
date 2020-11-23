@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react'
-import pet, { ANIMALS } from '@frontendmasters/pet'
+import React, { useState, useEffect, useContext, FunctionComponent } from 'react'
+import pet, { ANIMALS, Animal } from '@frontendmasters/pet'
 import useDropdown from '../customHooks/useDropdown' //custom hook
 import Results from './Results'
 import ThemeContext from '../context/ThemeContext'
+import { RouteComponentProps } from '@reach/router'
 
-const SearchParams = () => {
+const SearchParams: FunctionComponent<RouteComponentProps> = () => {
   const [location, setLocation] = useState("Seattle, WA") //limited to `Seattle, WA` and `San Francisco, CA` to not hammer the API
-  const [breeds, setBreeds] = useState([])
+  const [breeds, setBreeds] = useState([] as string[])
   const [animal, AnimalDropdown] = useDropdown("Animal", 'dog', ANIMALS)
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds)
-  const [pets, setPets] = useState([])
+  const [pets, setPets] = useState([] as Animal[])
   const [theme, setTheme] = useContext(ThemeContext)
 
   //try to hit the API
@@ -61,7 +62,7 @@ const SearchParams = () => {
           <select
             value={theme}
             onChange={e => setTheme(e.target.value)}
-            onBlue={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
           >
             <option value="peru">Peru</option>
             <option value="darkblue">Dark Blue</option>
