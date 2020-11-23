@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import SearchParams from './components/SearchParams'
 import './App.css';
-import { Link, Router } from '@reach/router'
+import { Router } from '@reach/router'
 import Details from './components/Details';
 import ThemeConext from './context/ThemeContext'
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -11,9 +12,7 @@ function App() {
   //const [themeHook, setThemeHook] == ^
   return (
     <ThemeConext.Provider value={themeHook}>
-    <header>
-      <Link to='/'>Adopt Me!</Link>
-    </header>
+      <Navbar/>
       <Router>
         <SearchParams path='/'/>
         <Details path='/details/:id'/>
